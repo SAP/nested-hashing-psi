@@ -1,0 +1,30 @@
+add_library(PSILib 
+            Common/Hashing/CuckooHashTable.cpp 
+            Common/Hashing/HashUtils.cpp
+            Common/Hashing/HierarchicalCuckooHashTable.cpp
+            Common/Hashing/TabulationHashing.cpp
+            Common/DataInput/RandomDataInput.cpp
+            Common/DataInput/FixedDataInput.cpp
+            Common/Parameter/CLI.cpp
+            Common/Crypto/PrivateIndexedEqualityCheck/ElGamalPIE.cpp
+            Common/Crypto/PrivateIndexedEqualityCheck/PrecompElGamalPIE.cpp
+            Common/Crypto/AddHomElGamalEnc.cpp
+            Common/Crypto/PrivateIndexedEqualityCheck/FHEHIPPIE.cpp
+            Common/Crypto/PrivateIndexedEqualityCheck/BatchedFHEHIPPIE.cpp
+            )
+
+link_libraries(PSILib)
+add_executable(ServerMain
+            Server/ServerMain.cpp
+            Server/ElGamal/SimpleElGamalPSIServer.cpp
+            Server/ElGamal/PrecompElGamalPSIServer.cpp
+            Server/FHE/SimpleFHEPSIServer.cpp
+            Server/FHE/BatchedFHEPSIServer.cpp
+            )
+add_executable(ClientMain
+            Client/ClientMain.cpp
+            Client/ElGamal/SimpleElGamalPSIClient.cpp
+            Client/ElGamal/PrecompElGamalPSIClient.cpp
+            Client/FHE/SimpleFHEPSIClient.cpp
+            Client/FHE/BatchedFHEPSIClient.cpp
+            )
